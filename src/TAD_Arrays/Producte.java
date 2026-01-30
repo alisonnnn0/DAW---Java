@@ -1,5 +1,5 @@
 
-package Arrays;
+package TAD_Arrays;
 
     
 class Producte {
