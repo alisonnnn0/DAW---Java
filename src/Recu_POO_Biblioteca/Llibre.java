@@ -1,5 +1,5 @@
 
-package z.Biblioteca;
+package Recu_POO_Biblioteca;
 
 import java.util.Scanner;
 
@@ -15,15 +15,14 @@ public class Llibre {
     private int totalValoracions = 0;
     private int nombreValoracions;
 
-    public Llibre(String titol, String autor, int anyPublicacio, String categoria, boolean prestec, int valoracio, int totalValoracions, int nombreValoracions) {
+    public Llibre(String titol, String autor, int anyPublicacio, String categoria) {
         this.titol = titol;
         this.autor = autor;
         this.anyPublicacio = anyPublicacio;
         this.categoria = categoria;
-        this.prestec = prestec;
-        this.valoracio = valoracio;
-        this.totalValoracions = totalValoracions;
-        this.nombreValoracions = nombreValoracions;
+        this.valoracio = 0;
+        this.nombreValoracions = 0;
+        this.prestec = false;
     }
 
     
@@ -84,45 +83,5 @@ public class Llibre {
 
     public int getValoracio() {
         return valoracio;
-    }
-
-    public int getTotalValoracions() {
-        return totalValoracions;
-    }
-
-    public int getNombreValoracions() {
-        return nombreValoracions;
-    }
-
-    public void setTitol(String titol) {
-        this.titol = titol;
-    }
-
-    public void setAutor(String autor) {
-        this.autor = autor;
-    }
-
-    public void setAnyPublicacio(int anyPublicacio) {
-        this.anyPublicacio = anyPublicacio;
-    }
-
-    public void setCategoria(String categoria) {
-        this.categoria = categoria;
-    }
-
-    public void setPrestec(boolean prestec) {
-        this.prestec = prestec;
-    }
-
-    public void setValoracio(int valoracio) {
-        this.valoracio = valoracio;
-    }
-
-    public void setTotalValoracions(int totalValoracions) {
-        this.totalValoracions = totalValoracions;
-    }
-
-    public void setNombreValoracions(int nombreValoracions) {
-        this.nombreValoracions = nombreValoracions;
     }
 }
