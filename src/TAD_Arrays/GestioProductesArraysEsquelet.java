@@ -102,6 +102,7 @@ public class GestioProductesArraysEsquelet {
 
                 case 8:
                     // TODO: omple tot l’array amb un producte "BUIT (0€)"
+                    Arrays.fill(productes, new Producte("Buit", 0));
                     break;
 
                 case 9:
@@ -116,6 +117,11 @@ public class GestioProductesArraysEsquelet {
                     // - ordena l’array pel mateix criteri
                     // - demana un preu
                     // - cerca amb Arrays.binarySearch
+                    System.out.println("Introdueix un preu: ");
+                    int preu = lector.nextInt();
+                    
+                    System.out.println(Arrays.toString(productes, Arrays.binarySearch(productes, preu)));
+                    
                     break;
 
                 case 0:
