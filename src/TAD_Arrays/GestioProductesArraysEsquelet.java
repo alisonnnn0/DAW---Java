@@ -120,7 +120,7 @@ public class GestioProductesArraysEsquelet {
                     System.out.println("Introdueix un preu: ");
                     int preu = lector.nextInt();
                     
-                    System.out.println(Arrays.toString(productes, Arrays.binarySearch(productes, preu)));
+                    //System.out.println(Arrays.toString(productes, Arrays.binarySearch(productes, preu)));
                     
                     break;
 
