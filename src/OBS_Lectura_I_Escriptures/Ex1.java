@@ -2,33 +2,48 @@ package OBS_Lectura_I_Escriptures;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.*;
+import java.util.Scanner;
 
 public class Ex1 {
 
     public static void main(String[] args) {
+        
+        try (Scanner sc = new Scanner(new File("fistro.txt"))) {
 
-        try (Scanner lector = new Scanner(new File("fistro.txt"))) {
+            int numLn = 1;
+            String textLinia = "fi";
 
-            if (lector.hasNextLine()) {
+            if (sc.hasNextLine()) {
+                
+                textLinia = sc.nextLine();
+            }
 
-                int cont = 1;
+            while (!textLinia.equals("fi")) {
 
-                while (lector.hasNextLine() && !lector.nextLine().equals("fi")) {
+                int numParaules = 0;
+                
+                if (!textLinia.isEmpty()) {
+                    
+                    String[] linia = textLinia.split(" ");
+                    numParaules = linia.length;
+                }
 
-                    String linea[] = lector.nextLine().split(" ");
+                System.out.println("La línia " + numLn + " té " + numParaules + " paraules");
+                numLn++;
 
-                    System.out.println("La linea " + cont + " te " + linea.length + " paraules.");
-
-                    cont++;
-                    //linea.length
+                if (sc.hasNextLine()) {
+                    
+                    textLinia = sc.nextLine();
+                    
+                } else {
+                    
+                    textLinia = "fi";
                 }
             }
 
         } catch (FileNotFoundException ex) {
-
-            System.out.println(ex);
-
+            
+            System.out.println("No s'ha trobat el fitxer: " + ex.getMessage());
         }
     }
 }
