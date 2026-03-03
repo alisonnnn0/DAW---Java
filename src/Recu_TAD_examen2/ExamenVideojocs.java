@@ -192,10 +192,10 @@ public class ExamenVideojocs {
                 .forEach(System.out::println);
     }
 
-    public static void ex6(List<Videojoc> cataleg, Filtre<Videojoc> filtre) {
+    //public static void ex6(List<Videojoc> cataleg, Filtre<Videojoc> filtre) {
         // TODO: Implementa aquí l'Exercici 6
         // Crear una interficie funcional llamada Filtre, tiene un metodo que
         // recibe un generico y devuelve un booleano. En el main se imprime usando la interficie, todos los juegos que empiezan por Z.
        
-    }
+    //}
 }
