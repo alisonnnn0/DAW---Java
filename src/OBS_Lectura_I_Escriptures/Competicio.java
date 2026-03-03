@@ -97,7 +97,7 @@ public class Competicio {
         try (Formatter f = new Formatter("classificacio.txt")){
             
             classificacio.entrySet().stream() 
-                    .sorted(Map.Entry.<String, Integer>comparingByValue().reversed())
+                    .sorted(Map.Entry.<String, Integer>comparingByValue().reversed());
                     
             
         } catch (FileNotFoundException ex) {
