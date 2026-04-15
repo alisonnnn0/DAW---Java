@@ -1,5 +1,7 @@
 package InterficiesGrafiques;
 
+import java.awt.*;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -31,36 +33,38 @@ public class ex3 extends javax.swing.JFrame {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
-        jCheckBox1 = new javax.swing.JCheckBox();
-        jCheckBox2 = new javax.swing.JCheckBox();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jRadioButton3 = new javax.swing.JRadioButton();
+        negreta = new javax.swing.JCheckBox();
+        cursiva = new javax.swing.JCheckBox();
+        vermell = new javax.swing.JRadioButton();
+        blau = new javax.swing.JRadioButton();
+        verd = new javax.swing.JRadioButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        camp = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jCheckBox1.setText("Negreta");
-        jCheckBox1.addActionListener(this::jCheckBox1ActionPerformed);
+        negreta.setText("Negreta");
+        negreta.addActionListener(this::negretaActionPerformed);
 
-        jCheckBox2.setText("Cursiva");
-        jCheckBox2.addActionListener(this::jCheckBox2ActionPerformed);
+        cursiva.setText("Cursiva");
+        cursiva.addActionListener(this::cursivaActionPerformed);
 
-        buttonGroup1.add(jRadioButton1);
-        jRadioButton1.setText("Vermell");
+        buttonGroup1.add(vermell);
+        vermell.setText("Vermell");
+        vermell.addActionListener(this::vermellActionPerformed);
 
-        buttonGroup1.add(jRadioButton2);
-        jRadioButton2.setText("Blau");
+        buttonGroup1.add(blau);
+        blau.setText("Blau");
+        blau.addActionListener(this::blauActionPerformed);
 
-        buttonGroup1.add(jRadioButton3);
-        jRadioButton3.setText("Verd");
-        jRadioButton3.addActionListener(this::jRadioButton3ActionPerformed);
+        buttonGroup1.add(verd);
+        verd.setText("Verd");
+        verd.addActionListener(this::verdActionPerformed);
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jTextArea1.setText("Hola mochi <3");
-        jScrollPane1.setViewportView(jTextArea1);
+        camp.setColumns(20);
+        camp.setRows(5);
+        camp.setText("Hola mochi <3");
+        jScrollPane1.setViewportView(camp);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -70,17 +74,17 @@ public class ex3 extends javax.swing.JFrame {
                 .addGap(17, 17, 17)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jRadioButton2)
-                        .addComponent(jRadioButton1))
+                        .addComponent(blau)
+                        .addComponent(vermell))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jRadioButton3)
+                        .addComponent(verd)
                         .addGap(20, 20, 20)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(34, 34, 34)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jCheckBox2)
-                    .addComponent(jCheckBox1))
+                    .addComponent(cursiva)
+                    .addComponent(negreta))
                 .addGap(26, 26, 26))
         );
         jPanel1Layout.setVerticalGroup(
@@ -89,16 +93,16 @@ public class ex3 extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(62, 62, 62)
-                        .addComponent(jRadioButton1)
+                        .addComponent(vermell)
                         .addGap(17, 17, 17)
-                        .addComponent(jRadioButton2)
+                        .addComponent(blau)
                         .addGap(18, 18, 18)
-                        .addComponent(jRadioButton3))
+                        .addComponent(verd))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(75, 75, 75)
-                        .addComponent(jCheckBox1)
+                        .addComponent(negreta)
                         .addGap(53, 53, 53)
-                        .addComponent(jCheckBox2))
+                        .addComponent(cursiva))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(34, 34, 34)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -109,7 +113,10 @@ public class ex3 extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -119,17 +126,33 @@ public class ex3 extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jRadioButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton3ActionPerformed
+    private void verdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verdActionPerformed
 
-    private void jCheckBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox2ActionPerformed
+        camp.selectAll();
+        camp.setSelectionColor(Color.GREEN);
+        
+    }//GEN-LAST:event_verdActionPerformed
 
-    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
+    private void cursivaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cursivaActionPerformed
+        camp.selectAll();
+        
+    }//GEN-LAST:event_cursivaActionPerformed
+
+    private void negretaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_negretaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox1ActionPerformed
+    }//GEN-LAST:event_negretaActionPerformed
+
+    private void blauActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_blauActionPerformed
+        camp.selectAll();
+        camp.setSelectionColor(Color.BLUE);
+        
+    }//GEN-LAST:event_blauActionPerformed
+
+    private void vermellActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vermellActionPerformed
+        camp.selectAll();
+        camp.setSelectionColor(Color.RED);
+        
+    }//GEN-LAST:event_vermellActionPerformed
 
     /**
      * @param args the command line arguments
@@ -157,14 +180,14 @@ public class ex3 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JRadioButton blau;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JCheckBox jCheckBox2;
+    private javax.swing.JTextArea camp;
+    private javax.swing.JCheckBox cursiva;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JCheckBox negreta;
+    private javax.swing.JRadioButton verd;
+    private javax.swing.JRadioButton vermell;
     // End of variables declaration//GEN-END:variables
 }
