@@ -6,7 +6,11 @@ package InterficiesGrafiques;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Formatter;
 import javax.swing.JColorChooser;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
 /**
@@ -45,8 +49,8 @@ public class Ex8 extends javax.swing.JFrame {
         jPasswordFieldCont = new javax.swing.JPasswordField();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        jButton2 = new javax.swing.JButton();
+        jTextAreaGravar = new javax.swing.JTextArea();
+        jButtonGravar = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextAreaColores = new javax.swing.JTextArea();
@@ -114,11 +118,12 @@ public class Ex8 extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Entrada de dades", jPanel1);
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        jTextAreaGravar.setColumns(20);
+        jTextAreaGravar.setRows(5);
+        jScrollPane1.setViewportView(jTextAreaGravar);
 
-        jButton2.setText("Gravar");
+        jButtonGravar.setText("Gravar");
+        jButtonGravar.addActionListener(this::jButtonGravarActionPerformed);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -128,7 +133,7 @@ public class Ex8 extends javax.swing.JFrame {
                 .addGap(22, 22, 22)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 366, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton2)
+                .addComponent(jButtonGravar)
                 .addContainerGap(22, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -136,7 +141,7 @@ public class Ex8 extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(24, 24, 24)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton2)
+                    .addComponent(jButtonGravar)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(26, Short.MAX_VALUE))
         );
@@ -271,7 +276,12 @@ public class Ex8 extends javax.swing.JFrame {
     
     private void jComboBoxCambiarPestanyaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxCambiarPestanyaActionPerformed
         
+        int indexSeleccionat = jComboBoxCambiarPestanya.getSelectedIndex();
         
+        if (indexSeleccionat >= 0 && indexSeleccionat < jTabbedPane1.getTabCount()) {
+            
+            jTabbedPane1.setSelectedIndex(indexSeleccionat);
+        }
     }//GEN-LAST:event_jComboBoxCambiarPestanyaActionPerformed
 
     private void jButtonCambiarColorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCambiarColorActionPerformed
@@ -288,6 +298,38 @@ public class Ex8 extends javax.swing.JFrame {
         
         font();
     }//GEN-LAST:event_jCheckBoxNegretaActionPerformed
+
+    private void jButtonGravarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGravarActionPerformed
+        
+        String s = jTextAreaGravar.getText().trim();
+        
+        JFileChooser fc = new JFileChooser();
+        
+        int sel = fc.showSaveDialog(this);
+        
+        File file = null;
+        
+        if (sel  == JFileChooser.APPROVE_OPTION) {
+            
+            file = fc.getSelectedFile();
+            
+            if (s.isEmpty()) {
+                
+                JOptionPane.showMessageDialog(this, "Mal :(", "Atenció", JOptionPane.WARNING_MESSAGE);
+            
+            } else {
+                
+                try (Formatter f = new Formatter(file)) {
+                    
+                    f.format("%s", s);
+                    
+                } catch (FileNotFoundException ex) {
+                    
+                    JOptionPane.showMessageDialog(this, "No se puede guardar", "Atencion", JOptionPane.ERROR_MESSAGE);
+                }
+            }
+        }
+    }//GEN-LAST:event_jButtonGravarActionPerformed
 
     private void font(){
         
@@ -336,8 +378,8 @@ public class Ex8 extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButtonCambiarColor;
+    private javax.swing.JButton jButtonGravar;
     private javax.swing.JButton jButtonValidar;
     private javax.swing.JCheckBox jCheckBoxCursiva;
     private javax.swing.JCheckBox jCheckBoxNegreta;
@@ -353,8 +395,8 @@ public class Ex8 extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextAreaColores;
+    private javax.swing.JTextArea jTextAreaGravar;
     private javax.swing.JTextField jTextFieldNif;
     private javax.swing.JTextField jTextFieldNom;
     // End of variables declaration//GEN-END:variables
